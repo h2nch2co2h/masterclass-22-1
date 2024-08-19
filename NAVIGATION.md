@@ -25,5 +25,5 @@ flowchart TB;
   click D "INSTRUCTIONS.md" "A step-by-step procedure that will wlk you through the FM procedure.";
   click E "mbuto" "Web server to set up a FM simulation. Can be used in substitution of the tcl plug-in funnel.tcl.";
   click F "video2" "A lecture that goes a little more in deep in the practical phases of preparing and analysing a FM simulation";
-  click G "Solution.ipynb" "A python notebook that contains results and analyses of the simulation that is discussed in the masterclass.;
+  click G "Solution.ipynb" "A python notebook that contains results and analyses of the simulation that is discussed in the masterclass.";
 ```
