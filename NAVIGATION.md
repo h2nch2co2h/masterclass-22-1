@@ -11,7 +11,7 @@ The flow chart shown below indicates the order in which you should consult the r
 This data was presented among the masterclasses in the 2022 series.
 
 ```mermaid
-flowchart FM;
+flowchart TB;
   A[Install] ==> B[Lecture I];
   B ==> C[Slides];
   B ==> D[Instructions];
