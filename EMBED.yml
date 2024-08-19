@@ -1,6 +1,7 @@
 video1:
   title: PLUMED Masterclass 22-1.1
   location: https://www.youtube.com/live/HCI_FtnSnck?si=1uxfeS9h9vOFNzYp
+  type: external
 video2:
   title: PLUMED Masterclass 22-1.2
   location: https://www.youtube.com/live/ZL81ZxN_eo0?si=9wJqMA1QsblUplHN
