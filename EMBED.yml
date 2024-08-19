@@ -1,0 +1,15 @@
+video1:
+  title: PLUMED Masterclass 22-1.1
+  location: https://www.youtube.com/live/HCI_FtnSnck?si=1uxfeS9h9vOFNzYp
+video2:
+  title: PLUMED Masterclass 22-1.2
+  location: https://www.youtube.com/live/ZL81ZxN_eo0?si=9wJqMA1QsblUplHN
+Install:
+  location: https://github.com/h2nch2co2h/masterclass-22-1.git
+  type: external
+mbuto:
+  location: https://mbuto.si.usi.ch/
+  type: external
+#ref2:
+#  location: 21/005
+#  type: internal
