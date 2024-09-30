@@ -11,6 +11,9 @@ Install:
 mbuto:
   location: https://mbuto.si.usi.ch/
   type: external
+video3:
+  title: Funnel Metadynamics Pre-Processing Tool
+  location: https://youtu.be/DBGBGvHJ96g
 #ref2:
 #  location: 21/005
 #  type: internal
