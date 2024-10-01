@@ -14,7 +14,7 @@ or
 FM requires a set of files as input with a well-defined syntax, which might result difficult to to produce for inexperienced user.
 For this reason, we have created two ways to automatically create FM inputs:
  * using a tcl plug in, to be used together with the visualization software VMD;
- * a software-free server called MBUTO.
+ * a software-free server called Funnel Metadynamics Pre-Processing Tool.
 
 For the former, you will need to download the tooltip library for tcl together with the plug-in file funnel.tcl and load them through the *source* command in the tk terminal of VMD.
 The full description of the installation procedure and the links to the necessary code can be found in the paper of the Funnel Metadynamics Advanced Protocol (FMAP) (doi:10.1038/s41596-020-0342-4). Otherwise, the tcl files can be found in the library folder of the [Github](https://github.com/h2nch2co2h/masterclass-22-1.git).

@@ -15,7 +15,7 @@ flowchart TB;
   A[Install] ==> B[Lecture I];
   B ==> C[Slides];
   B ==> D[Instructions];
-  D ==> E[MBUTO];
+  D ==> E[web server];
   E ==> H[Showcase]
   D ==> F[Lecture II];
   E ==> F;
@@ -27,5 +27,5 @@ flowchart TB;
   click E "mbuto" "Web server to set up a FM simulation. Can be used in substitution of the tcl plug-in funnel.tcl.";
   click F "video2" "A lecture that goes a little more in deep in the practical phases of preparing and analysing a FM simulation";
   click G "Solution.ipynb" "A python notebook that contains results and analyses of the simulation that is discussed in the masterclass.";
-  click H "video3" "A video showcasing MBUTO functionalities";
+  click H "video3" "A video showcasing Funnel Metadynamics Pre-Processing Tool functionalities";
 ```

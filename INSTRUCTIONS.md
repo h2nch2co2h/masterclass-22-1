@@ -13,7 +13,7 @@ In this tutorial, it will be possible to learn the basics of Funnel Metadynamics
 Once you have completed this tutorial you will be able to:
 
 * Set up a FM simulation using one of the developed tools.
-* Use PLUMED and GROMACS to run FM simulations on a paradigmatic system (benzamidine/trypsin) and a more compelling one (Caffeine/A2A).
+* Use PLUMED and GROMACS to run FM simulations on a paradigmatic system (benzamidine/trypsin).
 * Analyse a FM simulation, checking for convergence and calculating the free-energy estimate. It addition these concepts also shown in the Masterclass of 2022, we will also describe a procedure to estimate kinetic constants starting from the information obtained from FM. 
 
 ## Recommended PLUMED setup
@@ -29,7 +29,7 @@ You can clone this repository locally in a machine using the following command:
 git clone https://github.com/h2nch2co2h/masterclass-22-1.git
 ```
 
-**Simulation of the benzamidine/trypsin system has been carried out with GROMACS v5.14 and a customised version of PLUMED v2.6. We also offer a more recent example with the caffeine/A2A system, using GROMACS v2020.6 and PLUMED v2.7.1**
+**Simulation of the benzamidine/trypsin system has been carried out with GROMACS v5.14 and a customised version of PLUMED v2.6.**
 
 ## Overview of the tutorial
 
@@ -51,7 +51,7 @@ FM simulations can be run from a correctly minimized and thermalized system and 
 
 The first exercise will be to create a fitting funnel for the system at hand. Similarly to the masterclass, we will use the benzamidine/trypsin system. In general, coordinates and topology for the system should be generated with the MD engine of one's choice, but in this tutorial we are goinge to see examples using GROMACS. You can find coordinates and topology for the benzamidine/trypsin system inside the data folder of Github.
 
-At this point the user can decide to use the VMD plug-in or the MBUTO web-server. We will start here with the former, if you wish to use the latter skip directly to point 18.
+At this point the user can decide to use the VMD plug-in or the Funnel Metadynamics Pre-Processing Tool web-server. We will start here with the former, if you wish to use the latter skip directly to point 18.
 
 1. Open VMD and load the coordinate file (start.gro). In general, this file should be the output at the end of the thermalization process but, in case of neccessity, also a pdb from the Protein DataBank can be used. Go to "Extensions" and press "Tk console". Once the console has been opened you can load the necessary libraries through the following commands:
     ```
@@ -112,13 +112,46 @@ flag need to be specified with a user-defined value or file, respectively, befor
 
     TO BE NOTED: beware when creating such a file with VMD since the final structure may have atoms renumbered, and this could create a mismatch during the simulation, causing artifacts and crashes. 
 
-For users that opted to follow the VMD plug-in route, it is possible to skip directly to the simulation phase. Following, we are going to explain how to use the MBUTO web server.
+For users that opted to follow the VMD plug-in route, it is possible to skip directly to the simulation phase. Following, we are going to explain how to use the Funnel Metadynamics Pre-Processing Tool web server.
 
 18. Access the server [website](https://mbuto.si.usi.ch/).
 
 19. Create an account to access the service and log in with the credentials.
 
-20. 
+20. Create a new 'Discovery' by clicking the plus on the upper left side of the interface and give it a name. This information will remain stored for a certain amount of time in case it is necessary to retrieve the project and change few parameters. Press 'Add' to finalize the creation of the discovery.
+
+21. Load the structure of your interest by fetching a particular PDBID or by uploading the file of your system. The user can click on secondary structures to zoom the view and, by shift+left-clicking, show atoms in a radius of the selected residue. A violet color signals the selected residue and the user can press numbers from 1 to 8 to adjust the zone to display atoms.
+
+22. Start defining the funnel shape by clicking on the funnel icon on the left (named 'Funnel'). A set of options will be displayed on the right, which can be set interactively.
+
+Definition of the parameters follows the same rationale of the VMD plug in (points 1 to 17). Following, we will just specify the procedure.
+
+23. Point A and B can be chosen by clicking on atoms, specifying the value of a given coordinate, or by adapting the value with the arrows in the boxes.
+
+24. Zcc is in the form of a slider, taking as a reference the point A. Alpha and Rcyl can be changed by providing directly a value or with the arrows and they are expressed in radians and Å, respectively.
+
+25. The ANCHOR point is selected by first flagging the checkbox on the left of 'Anchor point' and then clicking on an atom of the interface. Remember to uncheck the box to avoid changing the ANCHOR point by error when the selection is done. When an atom has been selected, its serial number should appear on the right of the option, signaling that an atom has been correctly provided.
+
+26. It is possible to undisplay or display the Funnel by clicking on the eye on the top right of the interface. 
+
+27. Switch to the 'Bounds' section on the left panel to start defining the walls and upper and lower limits that will be applied in the FM simulation.
+
+28. In the web server, the walls and limits are defined with sliders and they are represented by discs, clearly defining their boundaries with respect to point A. The web server has also an internal check to warn the user if improper values of bounds have been selected. In this case, a red message will be displayed on the side of the wrong parameter.
+
+29. A new feature of the web server is the possibility to define geometric collective variables that can be added directly in the PLUMED input at the end of the procedure. To do so, switch to the 'Collective variables' panel on the left that has a wrench as symbol.
+
+30. A list of user-defined collective variables can be found on the upper right of the interface. To date, it is possible to set a distance, angle, or dihedral angle and the system will automatically recognize the type of CV based on the user interaction. By right-clicking with the mouse on atoms the system will start to store their information and right-clicking again on the same atom stops the procedure. Thus, if the user right-clicks on two atoms and stops the selection there by right-clicking again on the second atom, a distance will be defined.
+
+31. It is also possible to define centers of mass (COM) to be used with the geometrical CVs. To do so, check the box on the left of CV virtual Atom and start selecting atoms with the left-click of the mouse. A red sphere should show the position of the COM in the Cartesian space and it updates for each new selection. When the user is satisfied in selecting the correct number of atoms, a click on the plus on the right of the interface finalizes the selection and stops the process to start a new COM definition.
+
+32. A 'History Log' is accessible on the left panel by clicking on the homonymous option (clock symbol). Here the user can revert a move or restore a previous state in the definition of parameters.
+
+33. Once all the parameters have been set, it is possible to create the PLUMED input file. To do so, click on the 'Protein' option at the top of the left panel (symbolized by atoms) and click on the 'PLUMED FILE' button on the right of the interface. A window should pop up with boxes to define the final values to complete the input and a drop-down menu to select particular CVs if any have been defined. It is also possible to create the pdb file to provide to the REFERENCE flag in FUNNEL_PS, although we suggest the user to adapt this file to the system under study as explained in the reference [protocol](https://www.nature.com/articles/s41596-020-0342-4).
+
+34. Press the 'DOWNLOAD' button to obtain a PLUMED input file.
+
+The procedure of pre-processing is now terminated and the user can progress to the Simulation phase. In case of bugs, please contact the email address andreabritesma@gmail.com.
+
 
 ### Simulation
 
