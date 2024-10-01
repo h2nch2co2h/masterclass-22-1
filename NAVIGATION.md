@@ -22,7 +22,7 @@ flowchart TB;
   F ==> G[Solution];
   click A "INSTALL.md" "Instructions for how to install the version of PLUMED that you will need for this exercise";
   click B "video1" "This lesson explains the basics about ligand/target binding and the scope of FM.";
-  click C "slides/plumed_masterclass_22-1.pdf" "The slides for the theory explained in Lecture I.";
+  click C "plumed_masterclass_22-1.pdf" "The slides for the theory explained in Lecture I.";
   click D "INSTRUCTIONS.md" "A step-by-step procedure that will wlk you through the FM procedure.";
   click E "mbuto" "Web server to set up a FM simulation. Can be used in substitution of the tcl plug-in funnel.tcl.";
   click F "video2" "A lecture that goes a little more in deep in the practical phases of preparing and analysing a FM simulation";
