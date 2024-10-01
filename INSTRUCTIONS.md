@@ -112,7 +112,7 @@ flag need to be specified with a user-defined value or file, respectively, befor
 
     TO BE NOTED: beware when creating such a file with VMD since the final structure may have atoms renumbered, and this could create a mismatch during the simulation, causing artifacts and crashes. 
 
-For users that opted to follow the VMD plug-in route, it is possible to skip directly to the simulation phase. Following, we are going to explain how to use the Funnel Metadynamics Pre-Processing Tool web server.
+    For users that opted to follow the VMD plug-in route, it is possible to skip directly to the simulation phase. Following, we are going to explain how to use the Funnel Metadynamics Pre-Processing Tool web server.
 
 18. Access the server [website](https://mbuto.si.usi.ch/).
 
@@ -205,9 +205,9 @@ The user can follow the procedure through the following numbered points and the 
 
     TO BE NOTED: in case the tooltip library was not loaded beforehand, please follow indications in point 1 of the pre-processing exercise before sourcing ffs.tcl.
 
-Two post-processing calculations are available. The first allows the calculation of the BFES through the PLUMED-2 'sum_hills' command. This is used for one of the convergence checks routinely done on metadynamics calculations and to reconstruct the BFES as a function of the CVs used in the simulation.
-The second option uses the PLUMED-2 'driver' command to provide values of CVs, rescale potentials, and much more along the simulation trajectory.
-We will start describing the first option. You can find the second option from point 9.
+    Two post-processing calculations are available. The first allows the calculation of the BFES through the PLUMED-2 'sum_hills' command. This is used for one of the convergence checks routinely done on metadynamics calculations and to reconstruct the BFES as a function of the CVs used in the simulation.
+    The second option uses the PLUMED-2 'driver' command to provide values of CVs, rescale potentials, and much more along the simulation trajectory.
+    We will start describing the first option. You can find the second option from point 9.
 
 3. Click the 'Plumed (bin)' button and select the folder path to the binary file 'plumed' of PLUMED-2 on the user’s computer. The name of the selected file is shown to the right of the button.
 
@@ -221,7 +221,7 @@ We will start describing the first option. You can find the second option from p
 
 8. Click 'RUN Sum_hills LR' to compute the BFES using a small bin number (150 points per CV). This is recommended to avoid computer cache memory issues when plotting the BFES in the FMAP GUI (Step 16). Alternatively, click 'RUN Sum_hills HR' to compute the BFES using a larger bin number, which is useful for the accurate estimate of the ligand binding free energy (Step 19). You can produce several BFESs computed along the simulation time by clicking 'RUN Sum_hills stride'. The number of BFESs produced depends on the stride value specified in the 'stride' entry. 'RUN Sum_hills stride' is useful for the convergence control and the binding free-energy calculation (Step 20). In all the cases, wait until the calculation is complete. The output of sum_hills is displayed in the VMD tk console; thus, you can check the progress of the calculation.
 
-Alternatively, you can use the interface to erform a driver calculation. Skip to step X to continue the analysis of the BFESs.
+    Alternatively, you can use the interface to perform a driver calculation. Skip to step 16 to continue the analysis of the BFESs.
 
 9. Click the ‘Plumed (bin)’ button and select the folder path to the binary file 'plumed' of PLUMED-2 on the user’s computer. The name of the selected file is shown to the right of the button.
 
